@@ -6,7 +6,11 @@ import pandas as pd
 import yaml
 import joblib
 
-CONFIG_FILE = '../configs/config.yaml'
+if 'ipykernel' in sys.modules:
+    CONFIG_FILE = f'../configs/config_env_jupyter.yaml'
+else:
+    CONFIG_FILE = f'./configs/config_env_terminal.yaml'
+
 
 with open(CONFIG_FILE) as file:
     yml = yaml.load(file)
